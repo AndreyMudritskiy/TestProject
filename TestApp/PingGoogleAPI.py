@@ -1,13 +1,8 @@
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+from DAL.Dataprovider.GoogleSheets.GoogleSheetsConnector import GoogleSheetsConnector
 
-url = ['https://spreadsheets.google.com/feeds']
-secret = ServiceAccountCredentials.from_json_keyfile_name(r'client_secret.json', url)
-client = gspread.authorize(secret)
+db = GoogleSheetsConnector()
+sheet = db.sheet1
+print(sheet.row_values(2))
 
-sheet = client.open('products').sheet1
 
-animals = sheet.get_all_records();
-print(animals)
 
-print(sheet.row_values(3))
