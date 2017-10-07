@@ -1,8 +1,15 @@
 from rest_framework import serializers
-from googledocs.models import Row
+from DAL.DomainModel.Food import Food
 
 
-class RowSerializer(serializers.ModelSerializer):
+class FoodSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Row
-        fields = ('field1', 'field2', 'field3')
+        model = Food
+        fields = ('Name', 'Proteins', 'Fats')
+
+    def RestoreModel(self):
+        food = Food()
+        food.Name = self.data['Name']
+        food.Proteins = self.data['Proteins']
+        food.Fats = self.data['Fats']
+        return food

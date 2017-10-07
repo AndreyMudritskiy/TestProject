@@ -1,5 +1,6 @@
 from DAL.Dataprovider.GoogleSheets.GoogleSheetsConnector import GoogleSheetsConnector
 
+
 class GoogleSheetsDataProvider:
 
     def __init__(self):
@@ -19,7 +20,7 @@ class GoogleSheetsDataProvider:
     def InsertRow(self, model):
 
         sheet = self.__db.sheet1
-        #ID = sheet.row_count   # отдает конец таблицы с пустыми строками
+        """ID = sheet.row_count   # отдает конец таблицы с пустыми строками"""
         ID = len(sheet.get_all_records()) + 2
         sheet.insert_row(model, ID)
         return ID
