@@ -4,8 +4,8 @@ from DAL.Dataprovider.GoogleSheets.GoogleSheetsDataProvider import GoogleSheetsD
 
 class DbLayer:
 
-    def __init__(self):
-        self._Context = GoogleSheetsDataProvider()
+    def __init__(self, context):
+        self._Context = context
         self._foodsRepository = None
 
     def FoodsRepository(self):
