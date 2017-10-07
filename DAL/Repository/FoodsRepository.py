@@ -1,7 +1,6 @@
-from DAL.Repository.IRepository import IRepository
 from DAL.DomainModel.Food import Food
 
-class FoodsRepository(IRepository):
+class FoodsRepository:
 
     def __init__(self,context):
         self.__context = context
@@ -21,12 +20,12 @@ class FoodsRepository(IRepository):
 
 
     def Insert(self, model):
-        repModel = self.GetModelRepresentation(model)
+        repModel = self.__GetModelRepresentation(model)
         return self.__context.InsertRow(repModel)
 
 
     def Update(self, model, ID):
-        repModel = self.GetModelRepresentation(model)
+        repModel = self.__GetModelRepresentation(model)
         self.__context.UpdateRow(ID, repModel)
 
 
@@ -34,5 +33,5 @@ class FoodsRepository(IRepository):
         self.__context.DeleteRow(ID)
 
 
-    def GetModelRepresentation(self, model):
+    def __GetModelRepresentation(self, model):
         return [model.Name, model.Proteins, model.Fats]

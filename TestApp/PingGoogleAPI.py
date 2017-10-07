@@ -1,11 +1,13 @@
 from DAL.DbLayer import DbLayer
 from DAL.DomainModel.Food import Food
 import unittest
+from DAL.Dataprovider.GoogleSheets.GoogleSheetsDataProvider import GoogleSheetsDataProvider
+
 
 class testAPI(unittest.TestCase):
 
     def runTest(self):
-        dblayer = DbLayer()
+        dblayer = DbLayer(GoogleSheetsDataProvider())
         model = Food()
         model.Name = "test"
         model.Proteins = "2"

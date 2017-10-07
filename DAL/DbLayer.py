@@ -3,12 +3,12 @@ from DAL.Dataprovider.GoogleSheets.GoogleSheetsDataProvider import GoogleSheetsD
 
 class DbLayer:
 
-    def __init__(self):
-        self._Context = GoogleSheetsDataProvider()
+    def __init__(self, context):
+        self._Context = context
         self._foodsRepository = None
 
     def FoodsRepository(self):
-        if(self._foodsRepository == None):
-            _foodsRepository = FoodsRepository(self._Context)
+        if self._foodsRepository is None:
+            self._foodsRepository = FoodsRepository(self._Context)
 
-        return _foodsRepository
+        return self._foodsRepository
