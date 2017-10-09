@@ -3,7 +3,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 import os
 
 
-class GoogleSheetsConnector(object):
+class GoogleSheetsConnector:
 
     def GetInit(self):
 
